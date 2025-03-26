@@ -36,23 +36,29 @@
             <div class="modal-dialog">
                 <div class="modal-content bg-success">
                     <form action="" method="POST">
-                        {% csrf_token %}
+                        {% for field in form %}
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Add Customers</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {{field}}
                         </div>
                         <div class="modal-body">
-                            <div class="p-3">
-                                {{ form.name.label_tag }}
-                                {{ form.name }}
+                            <div class="input-group flex-nowrap p-3">
+                                <span class="input-group-text" id="addon-wrapping">Name</span>
+                                <input type="text" class="form-control" placeholder="Name" aria-label="Username"
+                                    aria-describedby="addon-wrapping">
+                                {{field}}
                             </div>
-                            <div class="p-3">
-                                {{ form.email.label_tag }}
-                                {{ form.email }}
+                            <div class="input-group flex-nowrap p-3">
+                                <span class="input-group-text" id="addon-wrapping">Email</span>
+                                <input type="text" class="form-control" placeholder="Email" aria-label="Username"
+                                    aria-describedby="addon-wrapping">
+                                    {{field}}
                             </div>
-                            <div class="p-3">
-                                {{ form.phone.label_tag }}
-                                {{ form.phone }}
+                            <div class="input-group flex-nowrap p-3">
+                                <span class="input-group-text" id="addon-wrapping">Phone number</span>
+                                <input type="text" class="form-control" placeholder="+(country code)"
+                                    aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
@@ -60,7 +66,6 @@
                             <button type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
